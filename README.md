@@ -7,10 +7,13 @@
 ### Load
 
 ```python
-from transformers import BertModel, BertTokenizer
+# from transformers import AutoTokenizer, AutoModel
+from transformers import BertTokenizerFast, BertModel
 
 model_name_or_path = "jinmang2/kpfbert"
-tokenizer = BertTokenizer.from_pretrained(model_name_or_path)
+# tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+tokenizer = BertTokenizerFast.from_pretrained(model_name_or_path)
+# model = AutoModel.from_pretrained(model_name_or_path, add_pooling_layer=False)
 model = BertModel.from_pretrained(model_name_or_path, add_pooling_layer=False)
 ```
 
