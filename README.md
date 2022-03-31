@@ -1,25 +1,20 @@
 # KPF BERT
 
+- original repo: https://github.com/KPFBERT/kpfbert
+
 ## 사용방법
 
-### Step 1. Installation
-`python>3.6` 이어야 함
-```bash
-pip3 install torch>=1.4.0
-pip3 install transformer>=4.9.2
-```
+### Load
 
-### Step 2. Load Tokenizer, Model
 ```python
 from transformers import BertModel, BertTokenizer
 
-model_name_or_path = "LOCAL_MODEL_PATH"  # Bert 바이너리가 포함된 디렉토리
-
+model_name_or_path = "jinmang2/kpfbert"
+tokenizer = BertTokenizer.from_pretrained(model_name_or_path)
 model = BertModel.from_pretrained(model_name_or_path, add_pooling_layer=False)
-tokenizer = BertTokenizer.from_pretrained(model_name_or_path
 ```
 
-### Step 3. Tokenizer
+### Tokenizer
 ```python
 >>> text = "언론진흥재단 BERT 모델을 공개합니다."
 >>> tokenizer.tokenize(text)
@@ -31,7 +26,7 @@ tokenizer = BertTokenizer.from_pretrained(model_name_or_path
  'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
 ```
 
-### Step 4. Model Inference
+### Model Inference
 ```python
 >>> import torch
 >>> model.eval()
